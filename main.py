@@ -1,7 +1,19 @@
 from fastapi import FastAPI,Path,HTTPException,Query
 import json
+from pydantic import BaseModel
+from typing import Annotated
 
 app = FastAPI()
+
+class Patient(BaseModel):
+
+    id: str
+    name: str
+    city: str
+    age: int
+    gender: str
+    height: float
+    weight: float
 
 # Load data from a JSON file
 def load_data():
